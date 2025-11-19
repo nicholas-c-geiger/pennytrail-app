@@ -1,5 +1,5 @@
-import NextAuth from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
+import NextAuth from 'next-auth';
+import GitHubProvider from 'next-auth/providers/github';
 
 const handler = NextAuth({
   providers: [
@@ -10,15 +10,15 @@ const handler = NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   events: {
-    async signIn({ user, account, profile, isNewUser }) {
+    async signIn({ user, isNewUser }) {
       if (isNewUser) {
-        console.log("New user signed in:", user.email);
+        console.log('New user signed in:', user.email);
         // You could trigger onboarding, analytics, or DB setup here
       } else {
-        console.log("Returning user:", user.email);
+        console.log('Returning user:', user.email);
       }
     },
-  }
+  },
 });
 
 export { handler as GET, handler as POST };

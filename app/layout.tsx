@@ -1,5 +1,5 @@
-import "../styles/globals.css";
-import SessionWrapper from "../components/auth/SessionWrapper";
+import '../styles/globals.css';
+import SessionWrapper from '../components/auth/SessionWrapper';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
