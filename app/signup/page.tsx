@@ -25,10 +25,7 @@ export default function SignupPage() {
 
       await signIn('github', { callbackUrl: '/' });
     } catch (err: unknown) {
-      // Use a safe narrowing for unknown
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       const message = (err as Error)?.message ?? 'Unexpected error';
-      // eslint-disable-next-line no-console
       console.error(err);
       setError(message);
       setLoading(false);
