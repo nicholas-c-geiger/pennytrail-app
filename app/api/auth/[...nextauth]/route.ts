@@ -10,12 +10,39 @@ const handler = NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   events: {
-    async signIn({ user, isNewUser }) {
-      if (isNewUser) {
-        console.log('New user signed in:', user.email);
-        // You could trigger onboarding, analytics, or DB setup here
-      } else {
-        console.log('Returning user:', user.email);
+    async signIn({ user, account, profile, isNewUser }) {
+      const API_URL = process.env.API_URL;
+      try {
+        const githubId = account?.providerAccountId ?? (profile as { id?: string } | undefined)?.id;
+        const body = {
+          //githubId,
+          email: user?.email,
+          name: user?.name,
+          //isNewUser: Boolean(isNewUser),
+        };
+
+        try {
+          const res = await fetch(`${API_URL}/api/v1/users`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+          });
+
+          if (!res.ok) {
+            const text = await res.text().catch(() => null);
+            console.error('Upstream /api/v1/users returned error:', res.status, text);
+          } else {
+            console.log('Upstream user created/updated for githubId', githubId);
+          }
+        } catch (err) {
+          console.error('Network error while creating upstream user:', err);
+        }
+      } finally {
+        if (isNewUser) {
+          console.log('New user signed in:', user?.email);
+        } else {
+          console.log('Returning user:', user?.email);
+        }
       }
     },
   },

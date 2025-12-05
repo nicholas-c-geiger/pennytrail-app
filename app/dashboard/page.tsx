@@ -10,7 +10,7 @@ export default function ProfilePage() {
 
   return (
     <main style={{ padding: 20 }}>
-      <h1>Profile</h1>
+      <h1>Dashboard</h1>
       <p>Signed in as {session.user?.email}</p>
       <button onClick={() => signOut()} style={{ padding: '8px 16px' }}>
         Log out

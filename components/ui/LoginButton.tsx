@@ -17,7 +17,10 @@ export default function LoginButton() {
     );
   } else {
     return (
-      <button onClick={() => signIn('github')} style={{ padding: '10px 20px' }}>
+      <button
+        onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
+        style={{ padding: '10px 20px' }}
+      >
         Sign in
       </button>
     );
