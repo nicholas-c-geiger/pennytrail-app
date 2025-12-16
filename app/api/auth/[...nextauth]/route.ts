@@ -91,7 +91,7 @@ const handler = NextAuth({
           console.log('Upstream sync: method=', fetchOptions.method);
           // Do not log the raw Authorization token; show redacted value instead
           const safeHeaders = { ...fetchOptions.headers } as Record<string, string | undefined>;
-          //if (safeHeaders.Authorization) safeHeaders.Authorization = '[REDACTED]';
+          if (safeHeaders.Authorization) safeHeaders.Authorization = '[REDACTED]';
           console.log('Upstream sync: headers=', safeHeaders);
           console.log('Upstream sync: body=', fetchOptions.body);
           // Log a masked Authorization header if present (do not log the token itself)
