@@ -6,3 +6,7 @@ node_modules/
 
 # environment
 .env*
+
+# Playwright artifacts
+playwright-report/
+test-results/
