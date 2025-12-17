@@ -8,7 +8,9 @@
     "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx . --fix",
     "format": "prettier --write .",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:e2e": "playwright test",
+    "playwright:install": "npx playwright install"
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.0",
@@ -21,6 +23,7 @@
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@types/node": "24.9.2",
+    "@playwright/test": "^1.44.0",
     "@types/react": "19.2.2",
     "@typescript-eslint/eslint-plugin": "^8.47.0",
     "@typescript-eslint/parser": "^8.47.0",
