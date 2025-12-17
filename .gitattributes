@@ -1,2 +1,23 @@
+# Auto detect text files and normalize line endings in the repo
+* text=auto
+
+# Force LF for source files (consistent across platforms and CI)
+*.ts     text eol=lf
+*.tsx    text eol=lf
+*.js     text eol=lf
+*.jsx    text eol=lf
+*.json   text eol=lf
+*.css    text eol=lf
+*.md     text eol=lf
+
+# Ensure next-env.d.ts stays LF for consistent TS toolchain behavior
+next-env.d.ts text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
 # Auto detect text files and perform LF normalization
 * text=auto
