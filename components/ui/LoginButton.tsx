@@ -1,6 +1,6 @@
 'use client';
 
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 export default function LoginButton() {
   const { data: session, status } = useSession();
@@ -11,18 +11,18 @@ export default function LoginButton() {
 
   if (session) {
     return (
-      <button onClick={() => signOut()} style={{ padding: '10px 20px' }}>
-        Sign out as {session.user?.name}
-      </button>
-    );
-  } else {
-    return (
-      <button
-        onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
-        style={{ padding: '10px 20px' }}
-      >
-        Sign in
-      </button>
+      <p style={{ padding: '10px 20px', margin: 0 }}>
+        Logged in as {session.user?.name ?? session.user?.email}
+      </p>
     );
   }
+
+  return (
+    <button
+      onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
+      style={{ padding: '10px 20px' }}
+    >
+      Log In
+    </button>
+  );
 }

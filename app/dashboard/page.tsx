@@ -1,6 +1,7 @@
 'use client';
 
-import { useSession, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import LogOutButton from '../../components/ui/LogOutButton';
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();
@@ -11,10 +12,8 @@ export default function ProfilePage() {
   return (
     <main style={{ padding: 20 }}>
       <h1>Dashboard</h1>
-      <p>Signed in as {session.user?.email}</p>
-      <button onClick={() => signOut()} style={{ padding: '8px 16px' }}>
-        Log out
-      </button>
+      <p>Logged in as {session.user?.email}</p>
+      <LogOutButton style={{ padding: '8px 16px' }} />
     </main>
   );
 }
