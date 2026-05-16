@@ -6,6 +6,7 @@ import LogOutButton from './LogOutButton';
 export default function NavBar() {
   const pathname = usePathname() ?? '/';
   const isDashboard = pathname === '/dashboard' || pathname.startsWith('/dashboard/');
+  const isTransactions = pathname === '/transactions' || pathname.startsWith('/transactions/');
 
   return (
     <nav
@@ -18,7 +19,7 @@ export default function NavBar() {
         borderBottom: '1px solid #e5e7eb',
       }}
     >
-      <div>
+      <div style={{ display: 'flex', gap: 16 }}>
         <Link
           href="/dashboard"
           aria-current={isDashboard ? 'page' : undefined}
@@ -29,6 +30,17 @@ export default function NavBar() {
           }}
         >
           Dashboard
+        </Link>
+        <Link
+          href="/transactions"
+          aria-current={isTransactions ? 'page' : undefined}
+          style={{
+            textDecoration: 'none',
+            color: isTransactions ? '#0B5FFF' : 'inherit',
+            fontWeight: isTransactions ? 600 : 400,
+          }}
+        >
+          Transactions
         </Link>
       </div>
 
