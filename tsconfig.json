@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "esnext",
+    "module": "node16",
     "jsx": "react-jsx",
     "strict": true,
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -12,7 +12,7 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "plugins": [
