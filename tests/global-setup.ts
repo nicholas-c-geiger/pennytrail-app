@@ -23,7 +23,6 @@ async function globalSetup() {
   await page.click('text=Log In');
   console.log('Clicked Log In button, waiting for popup or redirect...');
 
-
   // Wait for either a popup or a redirect to GitHub using waitForEvent and waitForURL
   const [popup] = await Promise.all([
     page.waitForEvent('popup').catch(() => null),
@@ -31,7 +30,7 @@ async function globalSetup() {
     page.waitForTimeout(2000), // Give time for popup/redirect
   ]);
 
-  let githubPage = popup || page;
+  const githubPage = popup || page;
   if (githubPage.url().includes('github.com/login')) {
     console.log('On GitHub login page, filling credentials...');
     if (!GITHUB_USER || !GITHUB_PASS) {
@@ -45,7 +44,9 @@ async function globalSetup() {
       await githubPage.waitForSelector('button[name="authorize"]', { timeout: 5000 });
       await githubPage.click('button[name="authorize"]');
       console.log('Clicked authorize.');
-    } catch {}
+    } catch {
+      // Ignore if authorize button is not present
+    }
   }
 
   // Wait for redirect back to app using waitForURL

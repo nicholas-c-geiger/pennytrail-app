@@ -1,11 +1,11 @@
 {
   "name": "nextauth-github-demo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx . --fix",
+    "lint": "eslint components app tests --fix",
     "format": "prettier --write .",
     "test": "vitest",
     "test:watch": "vitest --watch",
@@ -14,26 +14,31 @@
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.0",
-    "next": "^16.0.10",
-    "next-auth": "^4.24.13",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next": "^16.2.6",
+    "next-auth": "^4.24.14",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^14.0.0",
-    "@types/node": "24.9.2",
-    "@playwright/test": "^1.44.0",
-    "@types/react": "19.2.2",
-    "@typescript-eslint/eslint-plugin": "^8.47.0",
-    "@typescript-eslint/parser": "^8.47.0",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "^15.5.6",
-    "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-prettier": "^5.1.0",
-    "jsdom": "^21.0.0",
-    "prettier": "^3.5.0",
-    "typescript": "5.9.3",
-    "vitest": "^4.0.16"
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/scope-manager": "^7.18.0",
+    "@typescript-eslint/type-utils": "^7.18.0",
+    "@typescript-eslint/utils": "^7.18.0",
+    "@typescript-eslint/visitor-keys": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^16.2.6",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
   }
 }
